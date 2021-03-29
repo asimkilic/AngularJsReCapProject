@@ -1,0 +1,39 @@
+
+<div class="row">
+<div class="col-lg-4 col-md-6 shadow-lg p-3 mb-5 bg-body rounded " *ngFor="let carDetail of carsDetail">
+<div class="card border-0 mb-3" style="width: 18rem;">
+  <img src="https://localhost:44347{{carDetail.carImages[0].imagePath}}" class="card-img-top" alt="...">
+  <div class="card-body text-center">
+    <h4>
+      <a routerLink="/cars/cardetails/{{carDetail.carId}}" class="card-title text-decoration-none h5" style="color:#007bff;">{{carDetail.carName}} </a>
+    </h4>
+    <p class="card-text h3">${{carDetail.dailyPrice}}/Day</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <!-- <li class="list-group-item">
+      <span class="float-start">Brand Name </span>
+      <span class="float-end">{{carDetail.brandName}}</span>
+    </li> -->
+    <!-- <li class="list-group-item">
+      <span class="float-start">Color </span>
+      <span class="float-end">{{carDetail.colorName}}</span>
+    </li> -->
+    <li class="list-group-item">
+      <span class="float-start">Model Year </span>
+      <span class="float-end">{{carDetail.modelYear}}</span>
+    </li>
+    <li class="list-group-item">
+      <span class="float-start">Description </span>
+      <span class="float-end">{{carDetail.description}}</span>
+    </li>
+
+  </ul>
+  <div class="card-body">
+    <div class="d-flex action justify-content-between">
+      <a href="" class="btn btn-success ">Rent Now</a>
+      <a routerLink="/cars/cardetails/{{carDetail.carId}}" class="btn btn-primary ">Details </a>
+    </div>
+  </div>
+</div>
+</div>
+</div>

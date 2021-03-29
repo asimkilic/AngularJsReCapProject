@@ -1,0 +1,97 @@
+<div class="container">
+  <div class="row">
+
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+      <div ngxSlickItem *ngFor="let img of carImage" class="slide ">
+        <img src="https://localhost:44347{{ img.imagePath}}" alt="" width="100%">
+      </div>
+    </ngx-slick-carousel>
+
+  </div>
+
+  <section class="ftco-section ftco-car-details">
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+          <div class="car-details">
+            <div class="img rounded" style="background-image: url(images/bg_1.jpg);"></div>
+            <div class="text text-center">
+               <span class="subheading">{{carDetail.brandName}} </span>
+              <h2> {{carDetail.carName}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md d-flex align-self-stretch ftco-animate">
+        <div class="media block-6 services">
+          <div class="media-body py-md-4">
+            <div class="d-flex mb-3 align-items-center">
+              <div class="icon d-flex align-items-center justify-content-center"><span
+                  class="flaticon-dashboard"></span></div>
+              <div class="text">
+                <h3 class="heading mb-0 pl-3">
+                  Description <br>
+                  <span>{{carDetail.description}}</span>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md d-flex align-self-stretch ftco-animate">
+        <div class="media block-6 services">
+          <div class="media-body py-md-4">
+            <div class="d-flex mb-3 align-items-center">
+              <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-pistons"></span>
+              </div>
+              <div class="text">
+                <h3 class="heading mb-0 pl-3">
+                  Daily Price
+                  <span>${{carDetail.dailyPrice}}/Day</span>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md d-flex align-self-stretch ftco-animate">
+        <div class="media block-6 services">
+          <div class="media-body py-md-4">
+            <div class="d-flex mb-3 align-items-center">
+              <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car-seat"></span>
+              </div>
+              <div class="text">
+                <h3 class="heading mb-0 pl-3">
+                  Model Year
+                  <span>{{carDetail.modelYear}}</span>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md d-flex align-self-stretch ftco-animate">
+        <div class="media block-6 services">
+          <div class="media-body py-md-4">
+            <div class="d-flex mb-3 align-items-center">
+              <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-backpack"></span>
+              </div>
+              <div class="text">
+                <h3 class="heading mb-0 pl-3">
+                  Color<br>
+                  <span>{{carDetail.colorName}}</span>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </section>
