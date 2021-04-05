@@ -1,39 +1,31 @@
 
-<div class="row">
-<div class="col-lg-4 col-md-6 shadow-lg p-3 mb-5 bg-body rounded " *ngFor="let carDetail of carsDetail">
-<div class="card border-0 mb-3" style="width: 18rem;">
-  <img src="https://localhost:44347{{carDetail.carImages[0].imagePath}}" class="card-img-top" alt="...">
-  <div class="card-body text-center">
-    <h4>
-      <a routerLink="/cars/cardetails/{{carDetail.carId}}" class="card-title text-decoration-none h5" style="color:#007bff;">{{carDetail.carName}} </a>
-    </h4>
-    <p class="card-text h3">${{carDetail.dailyPrice}}/Day</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <!-- <li class="list-group-item">
-      <span class="float-start">Brand Name </span>
-      <span class="float-end">{{carDetail.brandName}}</span>
-    </li> -->
-    <!-- <li class="list-group-item">
-      <span class="float-start">Color </span>
-      <span class="float-end">{{carDetail.colorName}}</span>
-    </li> -->
-    <li class="list-group-item">
-      <span class="float-start">Model Year </span>
-      <span class="float-end">{{carDetail.modelYear}}</span>
-    </li>
-    <li class="list-group-item">
-      <span class="float-start">Description </span>
-      <span class="float-end">{{carDetail.description}}</span>
-    </li>
+ <section class="ftco-section ftco-no-pt">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-12 heading-section text-center  mb-5">
+          <span class="subheading">Search Car</span>
+          <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Search car..">
+          <app-car-filter></app-car-filter>
+        </div>
 
-  </ul>
-  <div class="card-body">
-    <div class="d-flex action justify-content-between">
-      <a href="" class="btn btn-success ">Rent Now</a>
-      <a routerLink="/cars/cardetails/{{carDetail.carId}}" class="btn btn-primary ">Details </a>
+      </div>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let carDetail of carsDetail |filterPipe:filterText">
+          <div class="car-wrap rounded ">
+            <div class="img rounded d-flex align-items-end">
+                 <img src="https://localhost:5001{{carDetail.carImages[0].imagePath}}" class="img rounded d-flex align-items-end" alt="...">
+            </div>
+            <div class="text">
+              <h2 class="mb-0"><a routerLink="/cars/cardetails/{{carDetail.carId}}">{{carDetail.carName}}</a></h2>
+              <div class="d-flex mb-3">
+                <span class="cat">{{carDetail.brandName}}</span>
+                <p class="price ml-auto">${{carDetail.dailyPrice}} <span>/day</span></p>
+              </div>
+              <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a
+                routerLink="/cars/cardetails/{{carDetail.carId}}" class="btn btn-secondary py-2 ml-1">Details</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-</div>
-</div>
+  </section>

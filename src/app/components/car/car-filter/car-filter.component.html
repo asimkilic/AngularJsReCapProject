@@ -1,0 +1,16 @@
+<div class="row mb-2">
+  <div class="border border-light p-2  w-50">
+    <select class="form-select " [(ngModel)]="selectedColor" (ngModelChange)='onColorSelected($event)' aria-label=".form-select-sm example">
+      <option disabled value="0">Colors</option>
+      <option *ngFor="let color of colors" [value]="color.id">{{color.name}}</option>
+    </select>
+  </div>
+  <div class="border border-light p-2  w-50">
+    <select class="form-select" [(ngModel)]="selectedBrand" (ngModelChange)='onBrandSelected($event)' aria-label=".form-select-sm example">
+      <option disabled value="0">Brands</option>
+      <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
+    </select>
+  </div>
+  <button class="btn btn-primary" (click)="filterCars()" >Filtrele</button>
+
+</div>

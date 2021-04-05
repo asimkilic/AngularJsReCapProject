@@ -12,7 +12,7 @@ import { SingleResponseModel } from '../models/singleResponseModel';
 export class CarService {
 
 
-  private apiUrl="https://localhost:44347/api/";
+  private apiUrl="https://localhost:5001/api/";
 
   constructor(private httpClient:HttpClient) { }
 
@@ -42,6 +42,16 @@ export class CarService {
   }
   getCarsDetailsByColorId(colorId:number):Observable<ListResponseModel<CarDetail>>{
     let newPath=this.apiUrl+"cars/getcarsdetailsbycolorid?id="+colorId;
+    return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);
+  }
+  getCarsWithByColorIdAndBrandId(colorfilterId:number,brandfilterId:number):Observable<ListResponseModel<CarDetail>>
+  {
+    let newPath=this.apiUrl+"cars/getcarswithbycoloridandbrandid?"+"colorId="+colorfilterId+"&"+"brandId="+brandfilterId;
+
+    return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);
+  }
+  getRelatedCarsBySegmentSegmentId(segmentId:number){
+    let newPath=this.apiUrl+"cars/getrelatedcarsbysegmentid?segmentId="+segmentId;
     return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);
   }
 

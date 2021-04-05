@@ -1,3 +1,4 @@
+import { createDirectiveTypeParams } from '@angular/compiler/src/render3/view/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car/car';
@@ -13,19 +14,29 @@ export class CarComponent implements OnInit {
 
   cars: Car[];
   carsDetail: CarDetail[];
-
+  carsFiltered:CarDetail[];
+  filterText="";
   dataLoaded=false;
   constructor(private carService: CarService,
     private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+
+
      this.activatedRoute.params.subscribe(params=>{
-       if(params["brandId"]){
+
+
+      if(params["brandId"]){
          this.getCarsDetailsByBrandId(params["brandId"]);
        }
        else if(params["colorId"]){
         this.getCarsDetailsByColorId(params["colorId"]);
        }
+       else if(params["colorfilterId"] && params["brandfilterId"])
+       {
+        this.getCarsWithByColorIdAndBrandId(params["colorfilterId"],params["brandfilterId"]);
+       }
+
        else{
          this.getCarsDetail();
        }
@@ -45,6 +56,7 @@ export class CarComponent implements OnInit {
       .subscribe(response => { this.carsDetail = response.data })
       this.dataLoaded=true;
   };
+
   getCarsByBrandId(brandId:number){
 
     this.carService.getCarsByBrandId(brandId).subscribe(response=>{this.cars=response.data});
@@ -58,6 +70,10 @@ export class CarComponent implements OnInit {
   }
   getCarsDetailsByColorId(colorId:number){
     this.carService.getCarsDetailsByColorId(colorId).subscribe(response=>{this.carsDetail=response.data});
+  }
+  getCarsWithByColorIdAndBrandId(colorfilterId:number,brandfilterId:number)
+  {
+    this.carService.getCarsWithByColorIdAndBrandId(colorfilterId,brandfilterId).subscribe(response=>{this.carsDetail=response.data});
   }
 
 }
