@@ -1,0 +1,20 @@
+<div class="content">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title">New Color</h5>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="colorAddForm">
+          <div class="form-group mb-3">
+           <label for="name">Color</label>
+            <input type="text" class="form-control" id="name" formControlName="name" placeholder=" Color..">
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+      </div>
+    </div>
+  </div>
+</div>

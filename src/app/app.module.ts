@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +25,13 @@ import { RelatedCarsComponent } from './components/car/related-cars/related-cars
 import {ToastrModule} from 'ngx-toastr';
 import { PaymentComponent } from './components/payment/payment.component';
 import {ModalModule } from 'ngx-bootstrap/modal';
+import { BrandAddComponent } from './components/Admin/Brand/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/Admin/Color/color-add/color-add.component';
+import { CustomerAddComponent } from './components/Admin/Customer/customer-add/customer-add.component';
+import { CarrAddComponent } from './components/Admin/Car/carr-add/carr-add.component';
+import { BrandUpdateComponent } from './components/Admin/Brand/brand-update/brand-update.component';
+import { ColorUpdateComponent } from './components/Admin/Color/color-update/color-update.component';
+import { CarUpdateComponent } from './components/Admin/Car/car-update/car-update.component';
 
 
 
@@ -46,6 +53,13 @@ import {ModalModule } from 'ngx-bootstrap/modal';
     CheckRentComponent,
     RelatedCarsComponent,
     PaymentComponent,
+    BrandAddComponent,
+    ColorAddComponent,
+    CustomerAddComponent,
+    CarrAddComponent,
+    BrandUpdateComponent,
+    ColorUpdateComponent,
+    CarUpdateComponent,
 
   ],
   imports: [
@@ -60,6 +74,7 @@ import {ModalModule } from 'ngx-bootstrap/modal';
       positionClass:"toast-bottom-right"
     }),
     ModalModule.forRoot(),
+    ReactiveFormsModule
 
   ],
   providers: [],

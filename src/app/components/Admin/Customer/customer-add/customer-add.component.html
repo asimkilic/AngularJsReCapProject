@@ -1,0 +1,24 @@
+<div class="content">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title">New Customer</h5>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="customerAddForm">
+          <div class="form-group mb-3">
+           <label for="userId">User Id</label>
+            <input type="number" class="form-control" id="userId" formControlName="userId" placeholder=" User Id..">
+          </div>
+          <div class="form-group mb-3">
+            <label for="userId">Company Name</label>
+             <input type="text" class="form-control" id="companyName" formControlName="companyName" placeholder=" Company Name..">
+           </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+      </div>
+    </div>
+  </div>
+</div>

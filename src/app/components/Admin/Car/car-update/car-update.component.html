@@ -1,0 +1,47 @@
+<div class="content">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title">Update Car</h5>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="carUpdateForm">
+          <div class="form-group mb-3">
+            <label for="brandId">Brand ID </label>
+             <input type="number" class="form-control" id="brandId" formControlName="brandId" placeholder="">
+           </div>
+           <div class="form-group mb-3">
+            <label for="colorId">Color ID</label>
+             <input type="number" class="form-control" id="colorId" formControlName="colorId" placeholder="">
+           </div>
+           <div class="form-group mb-3">
+            <label for="segmentId">Segment Id </label>
+             <input type="number" class="form-control" id="segmentId" formControlName="segmentId" placeholder="">
+           </div>
+           <div class="form-group mb-3">
+            <label for="carFeaturesId">Car Features Id </label>
+             <input type="number" class="form-control" id="carFeaturesId" formControlName="carFeaturesId" placeholder="">
+           </div>
+          <div class="form-group mb-3">
+           <label for="carName">Car Name </label>
+            <input type="text" class="form-control" id="carName" formControlName="carName" placeholder="">
+          </div>
+          <div class="form-group mb-3">
+            <label for="modelYear">Model Year </label>
+             <input type="number" class="form-control" id="modelYear" formControlName="modelYear" placeholder="">
+           </div>
+           <div class="form-group mb-3">
+            <label for="dailyPrice">Daily Price</label>
+             <input type="number" class="form-control" id="dailyPrice" formControlName="dailyPrice" placeholder="">
+           </div> <div class="form-group mb-3">
+            <label for="description">Description </label>
+             <input type="text" class="form-control" id="description"  formControlName="description" placeholder="">
+           </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-fill btn-primary" (click)="update()">Güncelle</button>
+      </div>
+    </div>
+  </div>
+</div>

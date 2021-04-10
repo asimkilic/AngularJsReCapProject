@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Car } from '../models/car/car';
 import { CarDetail } from '../models/car/carDetail';
 import { ListResponseModel } from '../models/listResponseModel';
+import { ResponseModel } from '../models/responseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
@@ -19,6 +20,10 @@ export class CarService {
   getCars():Observable<ListResponseModel<Car>>{
     let newPath=this.apiUrl+"cars/getall";
     return this.httpClient.get<ListResponseModel<Car>>(newPath);
+  }
+  getCarById(id:number):Observable<SingleResponseModel<Car>>{
+let newPath=this.apiUrl+"cars/getbyid?id="+id;
+return this.httpClient.get<SingleResponseModel<Car>>(newPath);
   }
   getCarsDetail():Observable<ListResponseModel<CarDetail>>{
     let newPath=this.apiUrl+"cars/getcarsdetails";
@@ -53,6 +58,16 @@ export class CarService {
   getRelatedCarsBySegmentSegmentId(segmentId:number){
     let newPath=this.apiUrl+"cars/getrelatedcarsbysegmentid?segmentId="+segmentId;
     return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);
+  }
+  add(car:Car):Observable<ResponseModel>
+  {
+   let newPath=this.apiUrl+"cars/add";
+   return this.httpClient.post<ResponseModel>(newPath,car);
+  }
+  update(car:Car):Observable<ResponseModel>
+  {
+    let newPath=this.apiUrl+"cars/update";
+    return this.httpClient.post<ResponseModel>(newPath,car);
   }
 
 }

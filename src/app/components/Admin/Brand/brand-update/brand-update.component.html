@@ -1,0 +1,21 @@
+<div class="content">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title">Update Brand</h5>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="brandUpdateForm">
+
+          <div class="form-group mb-3">
+           <label for="name">Brand Name</label>
+            <input type="text" class="form-control" id="name" formControlName="name" placeholder="Brand name..">
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-fill btn-primary" (click)="update()">Güncelle</button>
+      </div>
+    </div>
+  </div>
+</div>
